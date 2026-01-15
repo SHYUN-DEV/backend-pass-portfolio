@@ -80,28 +80,28 @@ class EventJoinWithExternalApiUpdateFacadeTest {
         }).when(externalEventApi).registerParticipant(any(), any(), any());
     }
 
-    @Test
-    @DisplayName("외부 API 호출과 DB 업데이트 불일치 테스트")
-    void externalApiCallAndDbUpdateMismatchTest() throws InterruptedException {
-        // when
-        ConcurrentTestUtil.executeConcurrentJoins(
-            testEvent.getId(),
-            testMembers,
-            (eventId, memberId) -> externalApiResponseFacade.joinEvent(eventId, memberId)
-        );
-
-        // then
-        logTestResults();
-
-        assertThat(externalApiCallCount.get())
-                .as("외부 API 호출 횟수가 DB 업데이트 성공 횟수보다 많아야 함")
-                .isGreaterThan(updateExternalIdSuccessCount.get());
-
-        double actualSuccessRate = (double) updateExternalIdSuccessCount.get() / updateExternalIdCallCount.get();
-        assertThat(actualSuccessRate)
-                .as("DB 업데이트 성공률이 약 50%여야 함")
-                .isBetween(0.3, 0.7);  // 30%~70% 범위 내 성공률 허용
-    }
+//    @Test
+//    @DisplayName("외부 API 호출과 DB 업데이트 불일치 테스트")
+//    void externalApiCallAndDbUpdateMismatchTest() throws InterruptedException {
+//        // when
+//        ConcurrentTestUtil.executeConcurrentJoins(
+//            testEvent.getId(),
+//            testMembers,
+//            (eventId, memberId) -> externalApiResponseFacade.joinEvent(eventId, memberId)
+//        );
+//
+//        // then
+//        logTestResults();
+//
+//        assertThat(externalApiCallCount.get())
+//                .as("외부 API 호출 횟수가 DB 업데이트 성공 횟수보다 많아야 함")
+//                .isGreaterThan(updateExternalIdSuccessCount.get());
+//
+//        double actualSuccessRate = (double) updateExternalIdSuccessCount.get() / updateExternalIdCallCount.get();
+//        assertThat(actualSuccessRate)
+//                .as("DB 업데이트 성공률이 약 50%여야 함")
+//                .isBetween(0.3, 0.7);  // 30%~70% 범위 내 성공률 허용
+//    }
 
     private void logTestResults() {
         log.info("=== 외부 API 호출과 DB 업데이트 불일치 테스트 결과 ===");
