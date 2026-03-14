@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class BackendportfolioApplication {
     public static void main(String[] args) {
-        System.out.println("진짜 인생에서 성공이 오냐 진짜 이제는 진짜 인생이 전환점을 만들자");
+        System.out.println("전환점을 만들자");
         SpringApplication.run(BackendportfolioApplication.class, args);
     }
 
