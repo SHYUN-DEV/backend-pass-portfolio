@@ -1,4 +1,4 @@
-<img width="828" height="814" alt="image" src="https://github.com/user-attachments/assets/f673314b-518d-4c56-9d58-02db4b90259e" /># Backend Portfolio Project
+# Backend Portfolio Project
 
 1. [수치화](https://secretive-egg-ad4.notion.site/Backend-portfolio-32d0be6283618058ba56e28bedcfc66b?source=copy_link)
 
